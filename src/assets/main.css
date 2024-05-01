@@ -1,0 +1,160 @@
+@font-face {
+  font-family: OpenSans;
+  src: url("./fonts/OpenSans-SemiBold.ttf"), format("truetype");
+}
+
+@font-face {
+  font-family: GalanoGrotesque;
+  src: url("./fonts/GalanoGrotesque-SemiBold.otf"), format("opentype");
+}
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .up-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.up-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+} 
+
+body {
+  margin: 3px;
+}
+.up-loader{
+  width: 33px;
+  height: 33px;
+  background-color: var(--gray-0-white);
+}
+
+.up-loading-text {
+  width: 155px;
+  height: 26px;
+  margin: 12px 0 0;
+  font-family: OpenSans;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: #6b7786;
+}
+
+.up-container {
+  width: 419px;
+  min-height: 312px;
+  max-height: 475px;
+  margin: 0 1px 0 0;
+  padding: 16px 0 20px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12),
+    0 1px 1px 0 rgba(0, 0, 0, 0.14);
+  background-color: var(--gray-0-white);
+}
+
+.up-card-header {
+  width: 419px;
+  height: 48px;
+  margin: 0 0 8px;
+  padding: 4px 96px 1px 15px;
+}
+.up-card-body{
+  height: 790px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.up-card-item{
+  width: 418px;
+  height: 64px;
+  margin: 0 1px 0 0;
+  background-color: var(--gray-0-white);
+ 
+}
+
+.up-card-item-text {
+  width: 318px;
+  height: 24px;
+  margin: 10px 31px 19px 12px;
+  font-family: OpenSans;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-80);
+}
+
+.up-product-logo {
+  width: 43px;
+  height: 43px;
+  margin: 7px 1px 0 13px;
+}
+
+.up-title-text {
+  width: 257px;
+  height: 28px;
+  margin: 8px 0 7px 8px;
+  font-family: GalanoGrotesque;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.footer {
+  width: 419px;
+  height: 48px;
+  margin: 0 1px 0 0;
+  padding: 4px 2px;
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.line {
+  width: 419px;
+  height: 1px;
+  background-color: #bfc6ce;
+}
+
+.up-zerono-products {
+  width: 386px;
+  height: 154px;
+  margin: 8px 10px 22px 15px;
+  object-fit: contain;
+}
+
+.up-line {
+  width: 213px;
+  height: 1px;
+  margin: 22px 94px 32px;
+  background-color: #bfc6ce;
+
+}
+
+.up-no-products-text {
+
+  width: 284px;
+
+  height: 40px;
+
+  font-family: OpenSans;
+
+  font-size: 14px;
+
+  font-weight: normal;
+
+  font-stretch: normal;
+
+  font-style: normal;
+
+  line-height: 1.43;
+
+  letter-spacing: normal;
+
+  text-align: center;
+
+  color: #6b7786;
+
+}
