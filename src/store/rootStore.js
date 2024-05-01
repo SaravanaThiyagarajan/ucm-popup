@@ -1,27 +1,42 @@
 import { defineStore } from "pinia";
+import httpService from "../service/HttpService";
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     isLoading: true,
+    isOpen:false,
+    token : "",
     products: [],
   }),
   getters: {
     productCount: (state) => state.products.length,
   },
   actions: {
+    show(){
+      this.isOpen = true;
+    },
+    hide(){
+      this.isOpen = false;
+    },
+    setToken(clientToken){
+      this.token = clientToken;
+    },
     async fetchProductList() {
       this.isLoading = true;
-      setTimeout(() => {
-        this.products = [
-          { name: "test porduct", logo: "hhh" },
-          { name: "Hoe", logo: "hhh" },
-          { name: "Commns", logo: "hhh" },
-          { name: "Pos 1", logo: "hhh" },
-          { name: "Pos 3", logo: "hhh" },
-          { name: "Pos 4", logo: "hhh" },
-          { name: "Pos 8", logo: "hhh" },
-        ];
+      try {
+        let response = await httpService.get('client-products')
+        
+        if(response.status==200){
+          this.products = response.data.data
+        }
+        setInterval(()=>{
+          this.isLoading = false;
+        },5000)
+      } catch (error) {
         this.isLoading = false;
-      }, 5000);
+        console.log("Error on api request",error)
+      }
+
+ 
     },
   },
 });

@@ -7,9 +7,9 @@
           <div
             class="d-flex justify-content-start align-items-center up-card-item"
           >
-            <img src="../assets/icons/upland-icon.png" class="up-product-logo" />
+            <img :src="product.product_information[0].logo" class="up-product-logo" />
 
-            <div class="up-card-item-text py-2">{{ product.name }}</div>
+            <div class="up-card-item-text py-2">{{ product.product_information[0].name }}</div>
           </div>
           <div class="line"></div>
         </div>

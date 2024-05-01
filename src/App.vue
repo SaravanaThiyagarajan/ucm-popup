@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="isOpen">
     <LoaderCard v-if="isLoading" />
     <NoProductCard v-if="!isLoading && !productCount" />
     <ProductCard v-if="!isLoading && productCount" />
@@ -14,7 +14,7 @@ import { useRootStore } from "./store/rootStore";
 export default {
   components: { ProductCard, LoaderCard, NoProductCard },
   computed: {
-    ...mapState(useRootStore, ["isLoading", "productCount"]),
+    ...mapState(useRootStore, ["isLoading", "isOpen","productCount"]),
   },
   methods: {
     ...mapActions(useRootStore, ["fetchProductList"]),
