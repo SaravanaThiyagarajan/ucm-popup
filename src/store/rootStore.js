@@ -3,6 +3,7 @@ import httpService from "../service/HttpService";
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     isLoading: true,
+    isPopupLoaded:false,
     isOpen: false,
     token: "",
     products: [],
@@ -34,7 +35,7 @@ export const useRootStore = defineStore("rootStore", {
         }
         setInterval(() => {
           this.isLoading = false;
-        }, 5000);
+        }, 3000);
       } catch (error) {
         this.isLoading = false;
         console.log("Error on api request", error);

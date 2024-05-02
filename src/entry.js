@@ -4,16 +4,17 @@ class UCM {
     this.ifrm = document.createElement("iframe");
     this.css =
       ".app-swicther-popup{background:white;border:0;position:fixed;z-index:10000000;}.show {display: block;}.hide {display: none;} iframe {border:none;}";
+  }
+
+  init() {
     if (!this.validateConfiguration()) {
       return;
     }
     this.prepareFrame(this.configuration.top, this.configuration.left);
-    return this;
-  }
-
-  init() {
     this.addListenter();
-    this.handleMessage("loaded");
+    setTimeout(() => {
+      this.handleMessage("loaded");
+    }, 3000);
   }
 
   validateConfiguration() {
@@ -34,8 +35,8 @@ class UCM {
   prepareFrame(top, left) {
     const styleEl = document.createElement("style");
     styleEl.append(this.css);
-    // this.ifrm.setAttribute("src", "https://app-switcher.test/");
-    this.ifrm.setAttribute("src", "http://127.0.0.1:5173/");
+    this.ifrm.setAttribute("src", "https://app-switcher.test/");
+    // this.ifrm.setAttribute("src", "http://127.0.0.1:5173/");
     this.ifrm.setAttribute("allowfullscreen", true);
     this.ifrm.setAttribute("allow", "fullscreen");
     this.ifrm.setAttribute("scrolling", "no");

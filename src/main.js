@@ -10,6 +10,7 @@ const pinia = createPinia();
 window.addEventListener("message", async (e) => {
   const rootStore = useRootStore();
   let { action } = e.data.data;
+
   if (action == "show") {
     rootStore.show();
   }
@@ -21,6 +22,7 @@ window.addEventListener("message", async (e) => {
   if (action == "loaded") {
     rootStore.setToken(e.data.data.token);
     window.parent.postMessage({ type: "ucm-loaded" }, "*");
+    rootStore.isPopupLoaded = true;
   }
 
   if (action == "init") {
