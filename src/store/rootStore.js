@@ -24,18 +24,12 @@ export const useRootStore = defineStore("rootStore", {
     async fetchProductList() {
       this.isLoading = true;
       try {
-        const config = {
-          headers: { Authorization: `Bearer ${this.token}` },
-        };
-
-        let response = await httpService.get("client-products",config);
+        let response = await httpService.get("client-products");
 
         if (response.status == 200) {
           this.products = response.data.data;
         }
-        setInterval(() => {
-          this.isLoading = false;
-        }, 3000);
+        this.isLoading = false;
       } catch (error) {
         this.isLoading = false;
         console.log("Error on api request", error);
