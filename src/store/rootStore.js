@@ -3,40 +3,42 @@ import httpService from "../service/HttpService";
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     isLoading: true,
-    isOpen:false,
-    token : "",
+    isOpen: false,
+    token: "",
     products: [],
   }),
   getters: {
     productCount: (state) => state.products.length,
   },
   actions: {
-    show(){
+    show() {
       this.isOpen = true;
     },
-    hide(){
+    hide() {
       this.isOpen = false;
     },
-    setToken(clientToken){
+    setToken(clientToken) {
       this.token = clientToken;
     },
     async fetchProductList() {
       this.isLoading = true;
       try {
-        let response = await httpService.get('client-products')
-        
-        if(response.status==200){
-          this.products = response.data.data
+        const config = {
+          headers: { Authorization: `Bearer ${this.token}` },
+        };
+
+        let response = await httpService.get("client-products",config);
+
+        if (response.status == 200) {
+          this.products = response.data.data;
         }
-        setInterval(()=>{
+        setInterval(() => {
           this.isLoading = false;
-        },5000)
+        }, 5000);
       } catch (error) {
         this.isLoading = false;
-        console.log("Error on api request",error)
+        console.log("Error on api request", error);
       }
-
- 
     },
   },
 });

@@ -9,16 +9,22 @@ const pinia = createPinia();
 
 window.addEventListener("message", async (e) => {
   const rootStore = useRootStore();
-  if (e.data.action == "show") {
+  let { action } = e.data.data;
+  if (action == "show") {
     rootStore.show();
   }
 
-  if (e.data.action == "hide") {
+  if (action == "hide") {
     rootStore.hide();
-  } 
+  }
 
-  if(e.data.action=="init-token"){
-    rootStore.setToken(e.data.token)
+  if (action == "loaded") {
+    rootStore.setToken(e.data.data.token);
+    window.parent.postMessage({ type: "ucm-loaded" }, "*");
+  }
+
+  if (action == "init") {
+    rootStore.fetchProductList();
   }
 });
 

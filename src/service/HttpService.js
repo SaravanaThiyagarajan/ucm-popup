@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRootStore } from "../store/rootStore";
 import config from "../config/config";
 
 const httpService = axios.create({
@@ -7,9 +8,19 @@ const httpService = axios.create({
   withCredentials: false,
   headers: {
     "Access-Control-Allow-Origin": "*",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9kdWN0IjoiVGVuIiwiY2xpZW50IjoiZGVtby1zYWkifQ.O9M7AJ7mC97pUX4TgGlVxUTBbD9Pxe5J7fcT2tCOSd4",
   },
 });
+
+httpService.interceptors.request.use(
+  (config) => {
+    const rootStore = useRootStore();
+    // Do something before request is sent
+    config.headers["Authorization"] = "Bearer " + rootStore.token;
+    return config;
+  },
+  (error) => {
+    Promise.reject(error);
+  }
+);
 
 export default httpService;

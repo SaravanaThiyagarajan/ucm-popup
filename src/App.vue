@@ -20,7 +20,7 @@ export default {
     ...mapActions(useRootStore, ["fetchProductList"]),
   },
   mounted() {
-    this.fetchProductList();
+    // this.fetchProductList();
   },
 };
 </script>
