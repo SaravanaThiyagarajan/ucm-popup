@@ -3,10 +3,12 @@ import httpService from "../service/HttpService";
 export const useRootStore = defineStore("rootStore", {
   state: () => ({
     isLoading: true,
-    isPopupLoaded:false,
+    isPopupLoaded: false,
     isOpen: false,
     token: "",
-    products: [],
+    products: [
+      
+    ],
   }),
   getters: {
     productCount: (state) => state.products.length,

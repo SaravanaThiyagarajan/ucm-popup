@@ -14,7 +14,7 @@ class UCM {
     this.addListenter();
     setTimeout(() => {
       this.handleMessage("loaded");
-    }, 3000);
+    }, 1000);
   }
 
   validateConfiguration() {
@@ -35,8 +35,7 @@ class UCM {
   prepareFrame(top, left) {
     const styleEl = document.createElement("style");
     styleEl.append(this.css);
-    this.ifrm.setAttribute("src", "https://app-switcher.test/");
-    // this.ifrm.setAttribute("src", "http://127.0.0.1:5173/");
+    this.ifrm.setAttribute("src", "https://app-switcher.test/iframe.html");
     this.ifrm.setAttribute("allowfullscreen", true);
     this.ifrm.setAttribute("allow", "fullscreen");
     this.ifrm.setAttribute("scrolling", "no");
@@ -80,3 +79,8 @@ class UCM {
     });
   }
 }
+
+
+new UCM({});
+
+ 

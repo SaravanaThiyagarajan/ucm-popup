@@ -8,21 +8,21 @@
   src: url("./fonts/GalanoGrotesque-SemiBold.otf"), format("opentype");
 }
 
- /* Hide scrollbar for Chrome, Safari and Opera */
- .up-scroll::-webkit-scrollbar {
+/* Hide scrollbar for Chrome, Safari and Opera */
+.up-scroll::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .up-scroll {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-} 
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 
 body {
   margin: 1px;
 }
-.up-loader{
+.up-loader {
   width: 33px;
   height: 33px;
   background-color: var(--gray-0-white);
@@ -61,18 +61,17 @@ body {
   margin: 0 0 8px;
   padding: 4px 96px 1px 15px;
 }
-.up-card-body{
+.up-card-body {
   height: 790px;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
-.up-card-item{
+.up-card-item {
   width: 418px;
   height: 64px;
   margin: 0 1px 0 0;
   background-color: var(--gray-0-white);
- 
 }
 
 .up-card-item-text {
@@ -130,11 +129,9 @@ body {
   height: 1px;
   margin: 22px 94px 32px;
   background-color: #bfc6ce;
-
 }
 
 .up-no-products-text {
-
   width: 284px;
 
   height: 40px;
@@ -156,5 +153,31 @@ body {
   text-align: center;
 
   color: #6b7786;
+}
 
+.spinner-grow,
+.spinner-border {
+  display: inline-block;
+  width: var(--bs-spinner-width);
+  height: var(--bs-spinner-height);
+  vertical-align: var(--bs-spinner-vertical-align);
+  border-radius: 50%;
+  animation: var(--bs-spinner-animation-speed) linear infinite
+    var(--bs-spinner-animation-name);
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner-border {
+  --bs-spinner-width: 2rem;
+  --bs-spinner-height: 2rem;
+  --bs-spinner-vertical-align: -0.125em;
+  --bs-spinner-border-width: 0.25em;
+  --bs-spinner-animation-speed: 0.75s;
+  --bs-spinner-animation-name: spinner-border;
+  border: var(--bs-spinner-border-width) solid currentcolor;
+  border-left-color: transparent;
 }
